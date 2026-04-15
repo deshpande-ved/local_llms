@@ -113,6 +113,8 @@
 
 <p>A model like Phi-4 has billions of parameters stored as 16-bit floating point numbers, which adds up to far more memory than any phone has. The workaround is quantization, which compresses those weights down to 4-bit integers. That cuts memory usage by about 75% without much impact on the quality of responses. What would normally require 8 GB fits into around 2 GB, which is how you get a real language model running on a device with limited RAM.</p>
 
+<p>Models are also being designed with this constraint in mind from the start. Google's <a href="https://deepmind.google/models/gemma/gemma-4/">Gemma 4</a>, released in April 2026, includes E2B and E4B variants built specifically for edge devices like phones. The E2B model has around 2 billion effective parameters and is small enough to run on a Raspberry Pi, let alone an iPhone. These aren't stripped-down afterthoughts either. Google designed them with per-layer embeddings to maximize quality at small sizes, and they're released under the Apache 2.0 license so anyone can use them. The fact that companies like Google are investing in making their best models run on phones says a lot about where this is heading.</p>
+
 <h2>Why This Matters</h2>
 
 <p>The practical benefits are pretty obvious once you think about them. Your data never leaves the device, so there are no server logs and no third party storing your conversations. Responses come back faster because there's no network round trip. It works without internet, whether you're on a plane or somewhere with bad service. And it's free, no subscription, no API costs, since both the models and the framework are open source.</p>
@@ -193,7 +195,9 @@
 
 <h2>Limitations and What's Next</h2>
 
-<p>It works, but there are real trade-offs. The biggest is memory. Even the newest iPhones cap out at 8 GB of RAM, which limits you to models in the 3 to 7 billion parameter range after quantization. Something like GPT-4, which is orders of magnitude larger, isn't running on a phone anytime soon. Generation speed is also slower than what you'd get from a cloud GPU cluster. Fine for quick questions, less ideal for generating anything long. And ML inference is hard on the battery, so extended use drains power fast. There's also the setup friction. Right now you need Xcode and a developer account, which means this isn't something the average person can just download from the App Store.</p>
+<p>It works, but there are real trade-offs. The biggest is memory. Even the newest iPhones cap out at 8 GB of RAM, which limits you to models in the 3 to 7 billion parameter range after quantization. Something like GPT-4, which is orders of magnitude larger, isn't running on a phone anytime soon. Generation speed is also slower than what you'd get from a cloud GPU cluster. Fine for quick questions, less ideal for generating anything long. And ML inference is hard on the battery, so extended use drains power fast.</p>
+
+<p>On the accessibility side, things have actually improved a lot. You no longer need Xcode or a developer account to try this. Apps like <a href="https://apps.apple.com/us/app/locally-ai-local-ai-chat/id6741426692">Locally AI</a> are already on the App Store and let you download and run models like Gemma, Llama, and Qwen directly on your iPhone with no setup. You pick a model, it downloads, and you start chatting. Everything runs on-device, no account required. For most people this is the easiest way to actually experience on-device AI right now.</p>
 
 <p>Still, the trajectory is worth paying attention to. Apple featured MLX at WWDC 2025, which signals they're treating this as a priority. Models keep getting more efficient. Quantization techniques keep improving. What needed 16 GB of memory two years ago runs in 4 GB now. The hardware gets faster with every chip generation. None of these problems are permanent.</p>
 
@@ -209,6 +213,8 @@
     <li>Apple. "MLX Swift Examples." GitHub repository. <a href="https://github.com/ml-explore/mlx-swift-examples">github.com/ml-explore/mlx-swift-examples</a></li>
     <li>Apple. "MLX — Machine Learning Framework." Open Source at Apple. <a href="https://opensource.apple.com/projects/mlx/">opensource.apple.com/projects/mlx</a></li>
     <li>MLX Community. Pre-converted models for Apple MLX. Hugging Face. <a href="https://huggingface.co/mlx-community">huggingface.co/mlx-community</a></li>
+    <li>Google DeepMind. "Gemma 4." Apr. 2026. <a href="https://deepmind.google/models/gemma/gemma-4/">deepmind.google/models/gemma/gemma-4</a></li>
+    <li>Locally AI. "Run AI models locally on your iPhone, iPad, and Mac." App Store. <a href="https://apps.apple.com/us/app/locally-ai-local-ai-chat/id6741426692">apps.apple.com/us/app/locally-ai-local-ai-chat</a></li>
   </ol>
 </section>
 
