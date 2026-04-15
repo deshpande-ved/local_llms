@@ -27,6 +27,11 @@
   color: #000;
 }
 
+.memo-btn-left {
+  right: auto;
+  left: 1.2rem;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 18px;
