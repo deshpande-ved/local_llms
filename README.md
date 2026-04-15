@@ -2,8 +2,6 @@
 
 A single-page website exploring why running large language models locally on iPhones matters, how Apple's MLX framework makes it possible, and what the real trade-offs are.
 
-Built for a Self-Guided Project in English at Northeastern University.
-
 ## Live Site
 
 Visit the article here: https://local-llms-3br.pages.dev/
