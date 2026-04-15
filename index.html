@@ -193,15 +193,25 @@
   </tbody>
 </table>
 
-<h2>Limitations and What's Next</h2>
+<h2>The Cost of Running AI on Your Phone</h2>
 
-<p>It works, but there are real trade-offs. The biggest is memory. Even the newest iPhones cap out at 8 GB of RAM, which limits you to models in the 3 to 7 billion parameter range after quantization. Something like GPT-4, which is orders of magnitude larger, isn't running on a phone anytime soon. Generation speed is also slower than what you'd get from a cloud GPU cluster. Fine for quick questions, less ideal for generating anything long. And ML inference is hard on the battery, so extended use drains power fast.</p>
+<p>The privacy and offline benefits are real, but running a language model locally comes with trade-offs that are worth being honest about. This isn't free in the way it might seem at first glance.</p>
 
-<p>On the accessibility side, things have actually improved a lot. You no longer need Xcode or a developer account to try this. Apps like <a href="https://apps.apple.com/us/app/locally-ai-local-ai-chat/id6741426692">Locally AI</a> are already on the App Store and let you download and run models like Gemma, Llama, and Qwen directly on your iPhone with no setup. You pick a model, it downloads, and you start chatting. Everything runs on-device, no account required. For most people this is the easiest way to actually experience on-device AI right now.</p>
+<p>Battery drain is the most immediate one. A <a href="https://greenspector.com/en/artificial-intelligence-smartphone-autonomy/">study by Greenspector</a> found that running a local model consumed roughly 29 times more energy than sending the same query to a cloud-based model like ChatGPT. In their tests, phones running local models like Llama 3.2 and Gemma 2 drained completely in under two hours of continuous use. That's not a typo. A phone that lasts you a full day under normal use might die before lunch if you're running an LLM on it steadily.</p>
 
-<p>Still, the trajectory is worth paying attention to. Apple featured MLX at WWDC 2025, which signals they're treating this as a priority. Models keep getting more efficient. Quantization techniques keep improving. What needed 16 GB of memory two years ago runs in 4 GB now. The hardware gets faster with every chip generation. None of these problems are permanent.</p>
+<p>Then there's thermal throttling. Phones aren't designed to sustain heavy compute loads the way a laptop or desktop is. They're passively cooled, meaning there's no fan, just a thin metal chassis trying to dissipate heat. Research from a <a href="https://arxiv.org/html/2603.23640v1">2026 study on mobile LLM inference</a> showed that the iPhone 16 Pro starts at around 40 tokens per second but drops to about 22 tokens per second within just two inference rounds, a 44% reduction. The phone spends about 65% of sustained use in a thermally throttled state. In plain terms, the longer you use it, the slower it gets, because the phone is actively protecting itself from overheating.</p>
 
-<p>Your phone isn't replacing cloud AI tomorrow, but for private, offline, instant responses on hardware you already own, it works right now. And the gap between what a phone can do and what a data center can do is shrinking faster than most people expect.</p>
+<p>There's also the question of long-term hardware wear. Batteries have a finite number of charge cycles, typically between 500 and 1,000 before they degrade noticeably. Running intensive ML workloads drains the battery faster, which means you're cycling through those charges more quickly and shortening the overall lifespan of the battery. The GPU itself isn't immune either. Sustained high-temperature operation accelerates wear on the logic board and other components. This is the kind of damage that builds up gradually and isn't obvious until the phone starts behaving differently a year or two down the line.</p>
+
+<p>Memory is another hard ceiling. Even the newest iPhones top out at 8 GB of RAM, and the operating system and other apps need some of that. In practice, you're limited to models in the 3 to 7 billion parameter range after quantization. Something like GPT-4, which is orders of magnitude larger, is nowhere close to running on a phone.</p>
+
+<h2>Where Things Are Heading</h2>
+
+<p>On the accessibility side, things have improved faster than expected. You no longer need Xcode or a developer account to try this. Apps like <a href="https://apps.apple.com/us/app/locally-ai-local-ai-chat/id6741426692">Locally AI</a> are on the App Store and let you download and run models like Gemma, Llama, and Qwen directly on your iPhone with no setup at all. You pick a model, it downloads, and you start chatting. No account, no configuration. For most people this is the simplest way to experience on-device AI today.</p>
+
+<p>The hardware constraints are real but they're not static. Apple featured MLX at WWDC 2025, signaling this is a priority for them. Models keep getting more efficient, quantization techniques keep improving, and what needed 16 GB of memory two years ago runs in 4 GB now. Apple's upcoming iPhone 17 Pro is expected to include vapor chamber cooling specifically to handle sustained AI workloads without throttling as aggressively. The gap between what a phone can do and what a data center can do is narrowing with every generation.</p>
+
+<p>Your phone isn't replacing cloud AI tomorrow. But for short, private, offline interactions on hardware you already own, it works right now. The limitations are real, and anyone using this should understand what it costs their device. But the trajectory is clear, and it's moving fast.</p>
 
 </article>
 
@@ -215,6 +225,8 @@
     <li>MLX Community. Pre-converted models for Apple MLX. Hugging Face. <a href="https://huggingface.co/mlx-community">huggingface.co/mlx-community</a></li>
     <li>Google DeepMind. "Gemma 4." Apr. 2026. <a href="https://deepmind.google/models/gemma/gemma-4/">deepmind.google/models/gemma/gemma-4</a></li>
     <li>Locally AI. "Run AI models locally on your iPhone, iPad, and Mac." App Store. <a href="https://apps.apple.com/us/app/locally-ai-local-ai-chat/id6741426692">apps.apple.com/us/app/locally-ai-local-ai-chat</a></li>
+    <li>Greenspector. "What is the environmental impact of local AI on our smartphones?" 2025. <a href="https://greenspector.com/en/artificial-intelligence-smartphone-autonomy/">greenspector.com/en/artificial-intelligence-smartphone-autonomy</a></li>
+    <li>"LLM Inference at the Edge: Mobile, NPU, and GPU Performance Efficiency Trade-offs Under Sustained Load." arXiv, 2026. <a href="https://arxiv.org/html/2603.23640v1">arxiv.org/html/2603.23640v1</a></li>
   </ol>
 </section>
 
