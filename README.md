@@ -1,4 +1,4 @@
-# Local LLMs Explainer
+# Local LLM's Explainer
 
 A single-page website exploring why running large language models locally on iPhones matters, how Apple's MLX framework makes it possible, and what the real trade-offs are.
 
